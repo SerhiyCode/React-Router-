@@ -25,41 +25,10 @@ const router = createBrowserRouter([
  },
 ]);  
  
-
-// const router = createBrowserRouter([
-//     {path: "/", element: <Home />},
-//     {path: "about", element: <>
-//     <About />
-//     <Header /> 
-//     <Footer />
-//      </> }, 
-//     {path: "cart", element:
-//      <> 
-//     <Cart /> 
-//     <Header /> 
-//     <Footer />
-//     </>  },  
-//     {path: "categories", element: <> 
-//     <Categories /> 
-//     <Header /> 
-//     <Footer />
-//      </> 
-//     },  
-//     {path: "product", element: <>
-//        <ProductDetails /> 
-//        <Header />  
-//        <Footer />
-//       </>},   
-//     {path: "*", element: <NotFound />},   
-// ]);
-
-
-
 function App() {
   return <RouterProvider router={router} />; 
 
 }
 
 export default App;
-
 
