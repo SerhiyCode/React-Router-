@@ -1,5 +1,5 @@
 
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { Link, useLocation, useParams, useSearchParams } from "react-router-dom";
 import { products } from "../data/data";
 
 
@@ -8,8 +8,12 @@ function Category() {
   const { categoryId } = useParams(); 
   const [searchParams ,setSearchParams] =useSearchParams();
 
-  const maxPrice = searchParams.get("maxPrice" ) ? Number( searchParams.get("maxPrice" )) : Infinity;
+  const location =  useLocation(); 
+  console.log(location);
 
+  // const maxPrice = searchParams.get("maxPrice" ) ? Number( searchParams.get("maxPrice" )) : Infinity;
+
+  const maxPrice = location.state.maxPrice;
   const currentCategoryArray = products.filter(
     (product) =>  product.categoryId === categoryId && product.price <= maxPrice 
 
@@ -21,13 +25,9 @@ function Category() {
    setSearchParams( value ? {maxPrice: value} : {});          
   }
 
-
-
-
-
   return (
     <div> 
-          <h1>Category: {categoryId}</h1>  
+          <h1> {`Your came from ${location.state?.from}`}  Category: {categoryId}</h1>  
           <div> 
             <label htmlFor=""></label> 
             <input type="number"  id="maxPrice" placeholder="Enter max price" onChange={handleChange} value={searchParams.get("maxPrice") ||  ""}  />
