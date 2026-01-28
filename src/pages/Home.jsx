@@ -4,7 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 import { categories } from "../data/data";
 
 function Home() { 
-
     const location = useLocation(); 
     console.log(location);
 
@@ -12,16 +11,27 @@ function Home() {
         <div> 
            <Link to="/category/Electronics" state={{from: "Home Page", maxPrice: 600 }}>
             Look at  our cheapest electronics
-            </ Link> 
+           </ Link>  
+ <Link 
+  to={{ 
+    pathname: "/category/Electronics",
+    search: "?maxPrice=600",  
+    hash: "#info",           
+  }} 
+  state={{ from: "Home Page", maxPrice: 600 }} 
+>
+  Look at our cheapest electronics
+</Link>
+
             <h1>Categories</h1> 
             <ul style={{ display: "flex", gap: "20px", listStyle: "none" }}>
                 {categories.map(category => (
-                    <li key={category.id}>
-                        {/* Додано слеш / перед назвою категорії */}
+                    <li key={category.id}>                        
                         <Link to={`/category/${category.name}`}>
                             {category.name}
                             <img src={category.img} alt={category.name} style={{ width: "150px", display: "block" }} />  
-                        </Link>
+                        </Link> 
+
                     </li>
                 ))}
             </ul>    
