@@ -2,11 +2,9 @@
 import { Link, useLocation, useParams, useSearchParams } from "react-router-dom";
 import { products } from "../data/data";
 
-
-
 function Category() {
   const { categoryId } = useParams(); 
-  const [searchParams ,setSearchParams] =useSearchParams();
+  const [ searchParams ,setSearchParams] =useSearchParams();
 
   const location =  useLocation(); 
   console.log(location);
@@ -16,9 +14,7 @@ function Category() {
   const maxPrice = location.state.maxPrice;
   const currentCategoryArray = products.filter(
     (product) =>  product.categoryId === categoryId && product.price <= maxPrice 
-
   );    
-
 
   function handleChange(e) {
    const value = e.target.value; 
@@ -41,7 +37,8 @@ function Category() {
                 </Link>
               </li> 
             ))} 
-          </ul> {""}
+          </ul> 
+           {""} 
     </div> 
   );       
 }

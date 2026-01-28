@@ -1,9 +1,13 @@
 
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { categories } from "../data/data";
 
-function Home() {
+function Home() { 
+
+    const location = useLocation(); 
+    console.log(location);
+
     return ( 
         <div> 
            <Link to="/category/Electronics" state={{from: "Home Page", maxPrice: 600 }}>
